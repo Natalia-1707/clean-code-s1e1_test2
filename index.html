@@ -8,19 +8,20 @@
   <title>Todo App</title>
 </head>
 <body class="page">
-  <div class="eisenhower-matrix">
+  <header class="eisenhower-matrix">
     <img class="eisenhower-matrix-img" src="./eisenhower-matrix.jpg">
     <a class="eisenhower-matrix-link" href="https://goal-life.com/page/method/matrix-eisenhower">Want more details?</a>
-  </div>
-  <div class="todo-block">
-    <p class="top-section" id="top-section"></p>
-    <label for="new-task" class="label-add">Add Item</label>
-    <div class="task-row-wrapper">
-      <input id="new-task" class="task-input" type="text">
-      <button class="button-add">Add</button>
-    </div>
-    <h3 class="title">Todo</h3>
-      <ul class="incompleted-tasks" id="incompleted-tasks">
+  </header>
+  <main>
+    <section class="todo-block">
+      <p class="top-section" id="top-section"></p>
+      <label for="new-task" class="label-add">Add Item</label>
+      <div class="task-row-wrapper">
+        <input id="new-task" class="task-input" type="text">
+        <button class="button-add">Add</button>
+      </div>
+      <h3 class="title">Todo</h3>
+        <ul class="incompleted-tasks" id="incompleted-tasks">
         <li class="tasks-list">
           <input type="checkbox" class="checkbox">
           <label class="task">Pay Bills</label>
@@ -35,14 +36,14 @@
           <label class="task">Go Shopping</label>
           <input type="text" class="task-input" value="Go Shopping">
           <button class="button-edit">Save</button>
-            <button class="button-delete">
-              <img class="button-delete-img" src="./remove.svg">
-            </button>
+          <button class="button-delete">
+            <img class="button-delete-img" src="./remove.svg">
+          </button>
         </li>
       </ul>
       <h3 class="title">Completed</h3>
       <ul class="completed-tasks" id="completed-tasks">
-        <li class="tasks-list_completed">
+        <li class="tasks-list-completed">
           <input type="checkbox" class="checkbox" checked>
           <label class="completed-task">See the Doctor</label>
           <input type="text" class="task-input">
@@ -52,7 +53,8 @@
           </button>
         </li>
       </ul>
-    </div>
-    <script src="app.js"></script>
+    </section>
+  </main>
+  <script src="app.js"></script>
 </body>
 </html>
