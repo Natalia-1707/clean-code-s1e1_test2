@@ -4,24 +4,24 @@ body {
   color: #333;
   font-family: Lato, sans-serif;
 }
-.aaa {
+.eisenhower-matrix {
   width: 500px;
   margin: 0 auto;
   display: block;
   text-align: right;
 }
-.aaa img {
+.eisenhower-matrix-img {
   width: 100%;
 }
-.aaa .more_inf {
+.eisenhower-matrix-link {
   font-family: fantasy, cursive;
 }
 
 @media (max-width:768px) {
-  .aaa { text-align: center;
+  .eisenhower-matrix { text-align: center;
 }
 }
-.centered-main-page-element {
+.todo-block {
   display: block;
   width: 500px;
   margin: 0 auto 0;
@@ -34,14 +34,19 @@ body {
 .task-row-wrapper {
   display: flex;
 }
-ul {
+.incompleted-tasks,
+.completed-tasks {
   margin:0;
   padding: 0px;
 }
-li, h3 {
+.tasks-list-edit,
+.title {
   list-style:none;
 }
-input,button{
+.checkbox,
+.task-input,
+.button-delete,
+.button-edit{
   outline:none;
 }
 button {
@@ -57,8 +62,8 @@ button:hover {
   color: #3a3a3a;
 }
 /* Heading */
-h3,
-label[for="new-task"] {
+.title,
+.label-add {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -67,7 +72,7 @@ label[for="new-task"] {
   margin: 0;
   text-transform: uppercase;
 }
-input[type="text"] {
+.task-input {
   margin: 0;
   font-size: 18px;
   line-height: 18px;
@@ -79,12 +84,12 @@ input[type="text"] {
   font-family: Lato, sans-serif;
   color: #888;
 }
-input[type="text"]:focus {
+.task-input:focus {
   color: #333;
 }
 
 /* New Task */
-label[for="new-task"] {
+.label-add {
   display: block;
   margin: 0 0 20px;
 }
@@ -93,7 +98,7 @@ input#new-task {
 }
 
 /* Task list */
-li {
+.tasks-list {
   overflow: hidden;
   padding: 20px 0;
   border-bottom: 1px solid #eee;
@@ -102,28 +107,28 @@ li {
   justify-content: space-between;
   align-items: center;
 }
-li > * {
+.tasks-list > * {
   vertical-align: middle;
 }
 
-li > input[type="checkbox"] {
+.tasks-list > .checkbox {
   margin: 0 10px;
 }
-li > label {
+.tasks-list > label {
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
   width: 226px;
 }
-li >    input[type="text"] {
+.tasks-list >    .task-input {
   width: 226px
 }
-button.delete img {
+.button-delete img {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
 }
-button.delete img:hover {
+.button-delete img:hover {
   transform: rotateZ(0);
 }
 
@@ -138,11 +143,11 @@ ul li input[type="text"] {
   display:none
 }
 
-ul li.editMode input[type="text"] {
+.task-input {
   display:inline-block;
   width:224px
 }
 
-ul li.editMode label {
+.checkbox {
   display:none;
 }
