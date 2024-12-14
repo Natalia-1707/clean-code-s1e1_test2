@@ -39,10 +39,7 @@ var createNewTaskElement = function (taskString) {
   deleteButton.className = "todo-block__button todo-block__button_delete";
   var deleteButtonImg = document.createElement("img");//delete button image
   deleteButtonImg.src = './remove.svg';
-
   deleteButton.appendChild(deleteButtonImg);
-
-
   //and appending.
   listItem.appendChild(checkBox);
   listItem.appendChild(label);
@@ -70,10 +67,7 @@ var addTask = function () {
 var editTask = function () {
   console.log("Edit Task...");
   console.log("Change 'edit' to 'save'");
-
-
   var listItem = this.parentNode;
-
   var editInput = listItem.querySelector(".todo-block__task-input");
   var label = listItem.querySelector(".todo-block__task");
   var editBtn = listItem.querySelector(".todo-block__button_edit");
@@ -158,16 +152,11 @@ for (var i = 0; i < incompleteTaskHolder.children.length; i++) {
     //bind events to list items chldren(tasksCompleted)
     bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
 }
-
 //cycle over completedTasksHolder ul list items
 for (var i = 0; i < completedTasksHolder.children.length; i++) {
   //bind events to list items chldren(tasksIncompleted)
   bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
 }
-
-
-
-
 // Issues with usability don't get seen until they are in front of a human tester.
 //prevent creation of empty tasks.
 //Change edit to save when you are in edit mode.
