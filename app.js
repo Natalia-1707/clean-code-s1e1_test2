@@ -18,8 +18,7 @@ var completedTasksHolder = document.getElementById("completed-tasks");//complete
 var createNewTaskElement = function (taskString) {
   var listItem = document.createElement("li");
   listItem.className = "todo-block__tasks-list";
-  //input (checkbox)
-  var checkBox = document.createElement("input");//checkbx
+  var checkBox = document.createElement("input");
   checkBox.type = "checkbox";
   checkBox.className = "todo-block__checkbox";
   //label
@@ -38,7 +37,8 @@ var createNewTaskElement = function (taskString) {
   var deleteButton = document.createElement("button");//delete button
   deleteButton.className = "todo-block__button todo-block__button_delete";
   var deleteButtonImg = document.createElement("img");//delete button image
-  deleteButtonImg.src = './remove.svg';
+  deleteButtonImg.src ='./remove.svg';
+  //Each elements, needs appending
   deleteButton.appendChild(deleteButtonImg);
   //and appending.
   listItem.appendChild(checkBox);
@@ -63,7 +63,6 @@ var addTask = function () {
 }
 
 //Edit an existing task.
-
 var editTask = function () {
   console.log("Edit Task...");
   console.log("Change 'edit' to 'save'");
@@ -74,17 +73,17 @@ var editTask = function () {
   var containsClass = listItem.classList.contains("todo-block__tasks-list_edit");
   //If class of the parent is .editmode
   if (containsClass) {
+    //switch to .editmode
+    //label becomes the inputs value.
     label.innerText = editInput.value;
-    editBtn.innerText ="Edit";
+    editBtn.innerText = "Edit";
   } else {
     editInput.value = label.innerText;
     editBtn.innerText = "Save";
   }
-
   //toggle .editmode on the parent.
   listItem.classList.toggle("todo-block__tasks-list_edit");
 };
-
 
 //Delete task.
 var deleteTask = function () {
@@ -94,7 +93,6 @@ var deleteTask = function () {
   //Remove the parent list item from the ul.
   ul.removeChild(listItem);
 }
-
 
 //Mark task completed
 var taskCompleted = function () {
@@ -125,14 +123,13 @@ var ajaxRequest = function () {
 
 //The glue to hold it all together.
 
-
 //Set the click handler to the addTask function.
 addButton.onclick = addTask;
 addButton.addEventListener("click", addTask);
 addButton.addEventListener("click", ajaxRequest);
 
+var bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
 
-var bindTaskEvents = function (taskListItem,checkBoxEventHandler) {
   console.log("bind list item events");
   //select ListItems children
   var checkBox = taskListItem.querySelector(".todo-block__checkbox");
@@ -149,14 +146,17 @@ var bindTaskEvents = function (taskListItem,checkBoxEventHandler) {
 //cycle over incompleteTaskHolder ul list items
 //for each list item
 for (var i = 0; i < incompleteTaskHolder.children.length; i++) {
-    //bind events to list items chldren(tasksCompleted)
-    bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
+  //bind events to list items chldren(tasksCompleted)
+  bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
 }
+
 //cycle over completedTasksHolder ul list items
 for (var i = 0; i < completedTasksHolder.children.length; i++) {
   //bind events to list items chldren(tasksIncompleted)
-  bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
+  bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
 }
+
+
 // Issues with usability don't get seen until they are in front of a human tester.
 //prevent creation of empty tasks.
 //Change edit to save when you are in edit mode.
