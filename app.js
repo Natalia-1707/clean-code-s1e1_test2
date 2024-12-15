@@ -21,31 +21,25 @@ var createNewTaskElement = function (taskString) {
   var checkBox = document.createElement("input");
   checkBox.type = "checkbox";
   checkBox.className = "todo-block__checkbox";
-
   //label
   var label = document.createElement("label");//label
   label.className = "todo-block__task";
   label.innerText = taskString;
-
   //input (text)
   var editInput = document.createElement("input");//text
   editInput.type = "text";
   editInput.className = "todo-block__task-input";
-
   //button.edit
   var editButton = document.createElement("button");//edit button
   editButton.className = "todo-block__button todo-block__button_edit";
   editButton.innerText = "Edit";
-
   //button.delete
   var deleteButton = document.createElement("button");//delete button
   deleteButton.className = "todo-block__button todo-block__button_delete";
   var deleteButtonImg = document.createElement("img");//delete button image
   deleteButtonImg.src ='./remove.svg';
-
   //Each elements, needs appending
   deleteButton.appendChild(deleteButtonImg);
-
   //and appending.
   listItem.appendChild(checkBox);
   listItem.appendChild(label);
@@ -135,6 +129,7 @@ addButton.addEventListener("click", addTask);
 addButton.addEventListener("click", ajaxRequest);
 
 var bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
+
   console.log("bind list item events");
   //select ListItems children
   var checkBox = taskListItem.querySelector(".todo-block__checkbox");
@@ -161,8 +156,7 @@ for (var i = 0; i < completedTasksHolder.children.length; i++) {
   bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
 }
 
+
 // Issues with usability don't get seen until they are in front of a human tester.
-
 //prevent creation of empty tasks.
-
 //Change edit to save when you are in edit mode.
